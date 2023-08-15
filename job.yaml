@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: simplecronjob
+spec:
+  schedule: '*/1 * * * *'
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: simplecronjob
+              image: simplecronjob
+              imagePullPolicy: Never
+              resources: {}
+          restartPolicy: OnFailure
+status: {}
